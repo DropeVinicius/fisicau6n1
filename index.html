@@ -1,0 +1,3536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+    <title>Nivelamento - Física Nivel 1 - Unidade 6</title>
+    
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1759773391/244287440_l_w7bprt.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* ===== ESTRUTURA DA CAIXA ===== */
+        .caixa-dupla {
+            position: relative;
+            display: inline-block;
+            max-width: 650px;
+            width: 80%;
+        }
+
+        /* Fundo verde atrás */
+        .caixa-dupla::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 100%;
+            height: 100%;
+            background-color: #015A42;
+            border-radius: 12px;
+            z-index: 0;
+        }
+
+        /* Caixa frontal */
+        .caixa-conteudo {
+            position: relative;
+            background-color: rgba(230, 242, 238, 0.75); /* leve transparência */
+            border: 2px solid #015A42;
+            border-radius: 12px;
+            padding: 32px 40px;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 1rem;
+            font-weight: normal;
+            z-index: 1;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            transform: translate(3px, 3px); /* deslocamento diagonal */
+        }
+
+        /* ===== VERSÃO DESKTOP (padrão) ===== */
+        @media (min-width: 992px) {
+        .caixa-conteudo {
+            max-width: 600px;
+            padding: 22px 48px;
+            font-size: 0.9rem;
+        }
+
+        .caixa-dupla::before {
+            top: 8px;
+            left: 8px;
+            border-radius: 14px;
+        }
+        }
+
+        /* ===== RESPONSIVO PARA TABLETS ===== */
+        @media (max-width: 768px) {
+        .caixa-conteudo {
+            padding: 16px 28px;
+            font-size: 0.95rem;
+        }
+
+        .caixa-dupla::before {
+            top: 6px;
+            left: 6px;
+        }
+        }
+
+        /* ===== RESPONSIVO PARA CELULARES ===== */
+        @media (max-width: 480px) {
+        .caixa-conteudo {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+        }
+
+        .caixa-dupla::before {
+            top: 4px;
+            left: 4px;
+        }
+        }
+
+        /* Título centralizado fora do container */
+        .titulo-figura-central {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            font-weight: normal;
+            margin: 20px auto 15px auto;
+        }
+
+        .titulo-figura-central .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        .titulo-figura-central .figura::after {
+            content: " ";
+            white-space: pre;
+        }
+
+        /* Bloco de figura simples (sem borda e sem fundo) */
+        .bloco-figura-simples {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0;
+            background: none;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Imagem centralizada */
+        .bloco-figura-simples .figura-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .bloco-figura-simples .figura-container img {
+            max-width: 75%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fonte abaixo da imagem */
+        .bloco-figura-simples .fonte-imagem {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            margin: 5px auto 12px auto;
+            max-width: 90%;
+        }
+
+        /* Descrição mais larga */
+        .bloco-figura-simples .descricao-figura-larga {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.5;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .titulo-figura-central {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .bloco-figura-simples .descricao-figura-larga {
+                font-size: 13px;
+                max-width: 100%;
+            }
+        }
+        /* TESTES */
+
+        .quadro-problema {
+            max-width: 800px;
+            width: 95%; /* adapta o quadro à tela menor */
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .resolucao p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resolucao p {
+                font-size: 0.9rem;
+            }
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 80%; /* imagem ocupa a largura total no mobile */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .quadro-problema {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .quadro-problema p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%; /* imagem se ajusta completamente */
+            }
+
+            .quadro-problema .resolucao {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quadro-problema {
+                width: 95%;
+                border-width: 1.5px;
+            }
+
+            .quadro-problema p {
+                font-size: 14px;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%;
+            }
+        }
+        .resolucao .item-recuado {
+            display: block;
+            padding-left: 25px !important;
+            position: relative;
+        }
+
+        .resolucao .item-recuado::before {
+            position: absolute;
+            left: 10px;   /* posição do ponto */
+            top: 0;
+            font-weight: bold;
+        }
+         /* Wrapper universal para expressões longas */
+        .math-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px; /* espaço para o scroll no mobile */
+        }
+
+        /* Impede MathJax de estourar o container */
+        .math-wrapper mjx-container {
+            display: inline-block;
+            max-width: 100%;
+            white-space: nowrap;
+        }
+
+        .lista-compacta {
+            list-style: none; 
+            margin: 0;
+            padding: 0;
+            padding-left: 80px;     /* recuo original (preservado) */
+        }
+
+        .lista-compacta li {
+            position: relative;
+            padding-left: 20px;
+            margin: 20px 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .lista-compacta li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+        }
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .lista-compacta {
+                padding-left: 30px;   /* reduz recuo só no mobile */
+                margin-left: 0;       /* corrige margem negativa que aparecia */
+            }
+
+            .lista-compacta li {
+                padding-left: 18px;   /* ajusta espaço da seta */
+                margin: 16px 0;
+                font-size: 1rem;
+            }
+
+            .lista-compacta li::before {
+                font-size: 18px;
+                left: 0;
+            }
+        }
+        
+            .slider-texto-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #3a95a6;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+        }
+        .slider-texto-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide-texto {
+            display: none;
+            flex-shrink: 0;
+            width: 100%;
+            text-align: center;
+            word-break: keep-all;
+            white-space: normal;
+            
+        }
+
+        .slide-texto.ativo {
+            display: block;
+        }
+
+        .titulo-texto {
+            color: #b9e5a9;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+        }
+
+        .conteudo-texto {
+            font-size: 16px !important;
+            color: #333 !important;
+            font-family: 'Roboto', sans-serif !important;
+            width: 100%;
+            margin: 0 auto;
+            word-break: normal;
+            white-space: normal;
+            text-align: left !important;
+        }
+        .titulo-texto,
+        .conteudo-texto {
+            word-break: break-word;
+            white-space: normal;
+        }
+        .seta-texto {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            color: #3a95a6;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .seta-texto.esquerda {
+            left: 0;
+        }
+
+        .seta-texto.direita {
+            right: 0;
+        }
+
+    @media (max-width: 768px) {
+        .titulo-texto {
+            font-size: 20px;
+        }
+
+        .conteudo-texto {
+            font-size: 18px;
+        }
+
+        .seta-texto {
+            font-size: 24px;
+        }
+    }
+        .slider-texto-indicadores {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .dot-texto {
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot-texto.ativo {
+            background-color: #3a95a6;
+        }
+        /* ------------------- */
+        /* TEMAS DE COR        */
+        /* ------------------- */
+
+        /* Tema verde */
+        .tema-verde {
+            border-color: #92d678;
+        }
+        .tema-verdeborda {
+            border-color: #015A42 !important;
+        }
+        .tema-verde .seta-texto {
+            color: #92d678;
+        }
+        .tema-verde .dot-texto.ativo {
+            background-color: #92d678;
+        }
+
+        /* Tema roxo */
+        .tema-roxo {
+            border-color: #9F43BE;
+        }
+        .tema-roxo .seta-texto {
+            color: #9F43BE;
+        }
+        .tema-roxo .dot-texto.ativo {
+            background-color: #9F43BE;
+        }
+
+        /* Tema roxo */
+        .tema-green {
+            border-color: #015A42;
+        }
+        .tema-green .seta-texto {
+            color: #015A42;
+        }
+        .tema-green .dot-texto.ativo {
+            background-color: #015A42;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .seta-texto { font-size: 24px; }
+            .conteudo-texto { font-size: 18px; }
+        }
+
+        /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #134969;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #FFF;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+       
+                /* Mantém fórmulas normais no desktop */
+        .acordeon-contentc mjx-container {
+            display: inline-block !important;
+            overflow: visible !important;
+            white-space: normal !important;
+            max-width: 100%;
+            text-align: center;
+        }
+        /* 📱 Responsividade — corrige fórmulas longas no mobile */
+        @media (max-width: 600px) {
+            .acordeon-contentc {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 6px; /* dá um pequeno respiro no scroll */
+            }
+
+            /* Cada expressão matemática vira um bloco rolável */
+            .acordeon-contentc mjx-container {
+                display: block !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                white-space: nowrap !important;
+                text-align: left !important;
+                max-width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Centraliza visualmente os parágrafos dentro do acordeon */
+            .acordeon-contentc p {
+                text-align: center;
+                margin: 10px auto;
+            }
+        }
+
+                    /* --- Força mínima para que mjx fique rolável no mobile --- */
+            @media (max-width: 600px) {
+            /* Container do conteúdo: permitir overflow-x funcional */
+            .acordeon-contentc {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* não mexemos em overflow-y, nem no overflow do .acordeon (mantemos o visual) */
+            }
+
+            /* mjx-container: garantir que o conteúdo interno possa ter largura natural maior
+                (min-width: max-content faz com que o elemento não seja encolhido) */
+            .acordeon-contentc mjx-container {
+                display: inline-block !important;
+                white-space: nowrap !important;           /* evita wrap que "quebra" largura */
+                min-width: -webkit-min-content !important;
+                min-width: -moz-min-content !important;
+                min-width: min-content !important;
+                pointer-events: auto !important;          /* garante que toques atinjam este elemento */
+                touch-action: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* Se você usa spans com inline-block dentro de p (como seu exemplo),
+                garantir que eles não forcem comportamento estranho: */
+            .acordeon-contentc p,
+            .acordeon-contentc p > span {
+                overflow: visible;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 0.9rem; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 0.9rem;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+        .titulo-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+            /* Acordeon styles FIM */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: sans-serif;
+            text-align: center;
+            animation: fadeOut 4s forwards; /* some sozinho */
+        }
+        .zoomable {
+            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+
+
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #017A5A, #015A42); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+        .paragrafo-seta {
+            position: relative;
+            /* <<< AQUI você ajusta o recuo do bloco inteiro */
+            margin-left: 60px !important;
+            padding-left: 20px;   /* distância EXATA entre seta e texto */
+            line-height: 1.6;
+        }
+
+        .paragrafo-seta::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0.1em;           /* alinha verticalmente com o texto */
+            font-size: 20px;      /* menor, mais elegante e proporcional */
+            line-height: 1;
+        }
+
+        .download-section {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .download-btn {
+                background-color: #9F43BE;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                margin-top: 80px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background-color: #7D3598;
+            }
+                /* ===== Seções de Conclusão e Referências ===== */
+        .conclusao, .referencias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .conclusao {
+            background-color: #E2F4EB; /* fundo suave */
+        }
+
+        .referencias {
+            background-color: #FFF;
+            border-top: 3px solid #015A42;
+            border-bottom: 3px solid #015A42;
+        }
+
+        /* Títulos */
+        .titulo-conclusao, .titulo-referencias {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42;
+            margin: 10px auto 20px auto;
+            text-align: left; /* garante centralização em desktop */
+        }
+
+        /* Caixas de texto */
+        .conclusao .caixa-texto, 
+        .referencias .caixa-texto {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Parágrafos */
+        .conclusao .caixa-texto p,
+        .referencias .caixa-texto p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Cores de texto diferentes */
+        .conclusao .caixa-texto p {
+            color: #333;
+        }
+        .referencias .caixa-texto p {
+            color: #000;
+        }
+
+        /* Links em referências */
+        .referencias .caixa-texto a {
+            word-break: break-all;
+            color: #015A42;
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 2rem;
+            }
+            .conclusao .caixa-texto p,
+            .referencias .caixa-texto p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 95%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 1.8rem;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42; /* Borda superior */
+            background-color: #FFFFFF; /* Fundo branco */
+            text-align: center; /* Centralizar texto */
+            padding: 15px 0; /* Espaçamento interno */
+            box-sizing: border-box; /* Inclui padding nas dimensões */
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42; /* Cor do texto */
+            margin: 0; /* Remove espaçamento externo */
+        }
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555; /* Cor neutra */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            display: block; /* Garante quebra para nova linha */
+            margin-top: 10px; /* Espaço entre o texto e o divisor */
+        }
+                /* Divisor */
+        .footer-divider {
+            border: none; /* Remove borda padrão */
+            height: 1px; /* Altura da linha */
+            background-color: #015A42; /* Cor da linha */
+            margin: 10px auto; /* Espaçamento vertical */
+            width: 80%; /* Define a largura do divisor */
+            opacity: 0.5; /* Reduz opacidade para suavizar */
+        }
+                /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px; /* Ajusta o tamanho da fonte */
+            }
+            .footer .fonte-menor {
+                font-size: 12px; /* Reduz tamanho da fonte */
+                line-height: 1.4; /* Ajusta o espaçamento */
+            }
+            .footer-divider {
+                width: 100%; /* Ajusta largura do divisor no mobile */
+            }
+        }
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+        </div>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#secao1">Tópico 1</a></li>
+            <li><a href="#secao2">Tópico 2</a></li>
+            <li><a href="#secao3">Tópico 3</a></li>
+            <li><a href="#secao4">Tópico 4</a></li>
+            <li><a href="#secao5">Tópico 5</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Refs Bibliográficas</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    <!-- Capa do Livro -->
+    <section id="capa-livro" class="capa-livro">
+        <div class="borda superior"></div>
+        <div class="conteudo-capa">
+            <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+            <h1 class="titulo-materia">Física - NÍVEL 1</h1>
+            <h2 class="subtitulo-professor">Profª Monica Tais Siqueira D'Amelio Felippe</h2>
+            <h2 class="subtitulo-professor">Prof. Murillo Preto Cardoso Junior</h2>
+        </div>
+        <div class="borda inferior"></div>
+    </section>
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    
+    <!-- Seção Introdução -->
+    <section id="introducao" class="introducao">
+        <!-- Barra Superior -->
+        <div class="barra-superior">
+            <h1 class="titulo-barra">UNIDADE 6 | CIRCUITOS ELÉTRICOS</h1>
+        </div>
+    
+        <!-- Conteúdo -->
+        <div class="caixa-texto">
+            <div class="conteudo-centralizado">
+                <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+    
+                <p>
+                    Você já se perguntou como a energia chega até os aparelhos da sua casa ou como é possível que tantos
+                    dispositivos funcionem ao mesmo tempo com precisão? A resposta está nos circuitos elétricos, uma
+                    estrutura essencial que garante o funcionamento de tecnologias simples e complexas. Nesta unidade,
+                    vamos entender como a corrente elétrica se comporta, como ela é gerada e por que certos materiais
+                    oferecem mais resistência que outros.
+                </p>
+                <p>
+                    Aqui, o foco é perceber como conceitos como corrente, tensão e resistência se relacionam na prática.
+                    Vamos conversar sobre o que faz uma lâmpada acender, por que as tomadas seguem certos padrões e
+                    como diferentes tipos de circuitos interferem no desempenho de aparelhos do dia a dia. Compreender esse
+                    conteúdo vai além da teoria: ele ajuda a entender o que acontece sempre que você liga um interruptor.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao1">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                1. CIRCUITOS ELÉTRICOS
+            </h1>
+        </div>
+        <p>
+            Atualmente, os circuitos elétricos estão presentes em praticamente todos os dispositivos que utilizamos,
+            desde a rede de distribuição elétrica nas residências e indústrias até nos aparelhos celulares utilizados
+            todos os dias (Seixas, 2018).
+        </p>
+        <br><br>
+        <div class="caixa-dupla">
+            <div class="caixa-conteudo">
+                Um circuito elétrico é, basicamente, uma <b>ligação entre elementos elétricos</b>, como
+                resistores, indutores, capacitores, fontes de tensão, entre outros, de modo a se
+                estabelecer um caminho fechado para a corrente elétrica.
+            </div>
+        </div>
+        <br><br>
+        <p>
+            A Figura 1 apresenta o esquema de um circuito elétrico.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 1</strong>.</span> Circuito elétrico</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 50%;" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765801122/fig1_zy33po.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem apresenta um esquema de circuito elétrico simples em série. Ele
+                é composto por um gerador, duas resistências conectadas em série, uma chave (ou interruptor) está
+                posicionada ao lado direito, permitindo abrir ou fechar o circuito conforme sua posição. A indicação da
+                corrente elétrica está representada pela letra "i",e percorre todo o circuito, saindo do polo positivo do
+                gerador, atravessando as resistências e retornando ao polo negativo.
+            </p>
+        </section>
+        <br>
+    </section>
+    <section class="secao2" id="secao2">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                2. CORRENTE ELÉTRICA
+            </h1>
+        </div>
+        <p>
+            O conceito de corrente elétrica está associado às palavras que já utilizadas anteriormente, sendo a primeira
+            delas <b>corrente</b>, que normalmente está associada ao fluxo de algo, como em um rio, quando dizemos que
+            a correnteza está forte ou fraca para nos referirmos a quantidade de água que flui nele. A segunda palavra
+            é <b>elétrica</b> que, por sua vez, está associada às cargas elétricas presentes na matéria (Markus, 2009).
+        </p>
+        <br><br>
+        <div class="caixa-dupla">
+            <div class="caixa-conteudo">
+                Quando certa quantidade de carga se desloca de um ponto para outro, podemos nos
+                referir a esses deslocamentos usando o conceito da corrente elétrica.
+                <br><br>
+                Dessa forma, podemos definir <b>Corrente Elétrica</b> como:
+                <br><br>
+                <b>o fluxo de carga elétrica (elétrons) entre dois pontos de um circuito elétrico.</b>
+            </div>
+        </div>
+        <br><br>
+        <p>
+            A intensidade da corrente elétrica é simbolizada pela letra \(i\), e seu valor é obtido pela razão entre a
+            quantidade de carga \(Q\) efetivamente deslocada e o intervalo de tempo \(\Delta{t}\) para isso ocorrer (Markus,
+            2009), logo:
+        </p>
+        <p>
+            $$ i = \frac {Q}{\Delta{t}} $$
+        </p>
+        <p>
+            Sendo a quantidade de carga \((Q)\) medida em coulomb (C) e o intervalo de tempo \((\Delta{t})\) medido em segundo
+            \((s)\), temos que a unidade de medida da intensidade da corrente elétrica é \(C/s\) (coulomb por segundo).
+            Entretanto, no S.I, convencionou-se que o valor unitário dessa grandeza seria denominado ampere \((A)\),
+            ou seja, \(1 {C/s} = 1 \ A\), em homenagem a André Ampère.
+        </p>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <b>Lembre-se:</b>
+                </p>
+                <p>
+                    Comumente, utilizamos submúltiplos da medida de intensidade da corrente elétrica.
+                    Assim, temos as seguintes unidades de medida associadas ao ampere:
+                </p>
+                <br>
+                <p class="item-recuado">
+                    <b>▸</b> 1 miliampere
+                </p>
+                <p class="item-recuado">
+                    <b>▸</b> 1 microampere
+                </p>
+                <p class="item-recuado">
+                    <b>▸</b> 1 nanoampere
+                </p>
+                <p class="item-recuado">
+                    <b>▸</b> 1 picoampere
+                </p>
+                <br>
+            </div>
+        </div>
+        <br>
+        <p>
+            A carga \((Q)\) pode ser obtida pelo produto entre número de elétrons (n) deslocados pela carga elementar
+            do elétron \((e)\) (Sadiku, 2014), desse modo:
+        </p>
+        <p>
+            $$ Q = n \cdot e $$
+        </p>
+        <p>
+            Onde: \(e = 1,6 \cdot 10^{-19} \ C\).
+        </p>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                2.1 TIPOS DE CORRENTE ELÉTRICA
+            </h1>
+        </div>
+        <p>
+            Ainda, levando em consideração o sentido de propagação, é comum classificarmos uma corrente elétrica
+            em dois tipos (Sadiku, 2014), deslize pelas setas para conhecê-los:
+        </p>
+
+        <br>
+        <section class="slider-texto-container tema-green" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        <b>
+                            Corrente contínua
+                        </b>
+                        <br><br>
+                        É um fluxo de cargas em um único sentido. Esse tipo de corrente é produzido, principalmente,
+                        por pilhas, baterias e células fotovoltaicas, como representado na figura ao lado.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <br>
+                    <!-- Título fora do container -->
+                    <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 2</strong>.</span> 
+                        Corrente contínua
+                    </h3>
+                    
+                    <!-- Bloco de Figura (sem borda e fundo) -->
+                    <section class="bloco-figura-simples tema-verde" style="border: none;">
+                        <!-- Imagem -->
+                        <div class="figura-container">
+                            <img class="zoomable" style="max-width: 80%; width: 60%;"
+                                src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765802455/fig2_plsbdm.png" alt="">
+                        </div>
+                        <br>
+                        <!-- Fonte abaixo da imagem -->
+                        <p class="fonte-imagem">
+                            <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+                        </p>
+                    
+                        <!-- Descrição com largura maior -->
+                        <p class="descricao-figura-larga">
+                            <strong>Descrição da tabela:</strong>
+                            A imagem mostra um gráfico de corrente elétrica em função do tempo, re
+                            presentando uma corrente <b>contínua (CC)</b>. O eixo vertical indica a intensidade da corrente elétrica
+                            <b>(corrente)</b>, e o eixo horizontal representa o tempo <b>(tempo)</b>. A linha vermelha horizontal, identificada
+                            por i, mostra que a corrente elétrica mantém um valor constante ao longo do tempo. Isso significa que
+                            não há variação na intensidade ou na direção da corrente.
+                        </p>
+                    </section>
+                    <br>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        <b>
+                            Corrente alternada
+                        </b>
+                        <br><br>
+                        É um fluxo oscilante de cargas que ora se movimenta em um sentido, ora em outro. A corrente
+                        alternada é fornecida pelas usinas geradoras de energia elétrica para residências e indústrias,
+                        conforme a figura ao lado.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <br>
+                    <!-- Título fora do container -->
+                    <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 3</strong>.</span>
+                        Corrente alternada
+                    </h3>
+                
+                    <!-- Bloco de Figura (sem borda e fundo) -->
+                    <section class="bloco-figura-simples tema-verde" style="border: none;">
+                        <!-- Imagem -->
+                        <div class="figura-container">
+                            <img class="zoomable" style="max-width: 80%; width: 60%;"
+                                src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765802569/fig3_tkmv54.png" alt="">
+                        </div>
+                        <br>
+                        <!-- Fonte abaixo da imagem -->
+                        <p class="fonte-imagem">
+                            <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+                        </p>
+                
+                        <!-- Descrição com largura maior -->
+                        <p class="descricao-figura-larga">
+                            <strong>Descrição da tabela:</strong>
+                            A imagem apresenta um gráfico de corrente elétrica em função do tempo,
+                            representando uma <b>corrente alternada (CA)</b>. No eixo vertical está a intensidade da corrente <b>(corrente)</b> 
+                            e no eixo horizontal o tempo <b>(tempo)</b>. A curva senoidal verde mostra que a corrente alterna
+                            periodicamente entre valores positivos e negativos, passando por zero em intervalos regulares. Os
+                            pontos marcados como i e –i indicam os valores máximos e mínimos da corrente nas direções 
+                            positiva e negativa, respectivamente.
+                        </p>
+                    </section>
+                    <br>
+                </div>
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+    </section>
+    <section class="secao1" id="secao3">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                3. GERADORES ELÉTRICOS
+            </h1>
+        </div>
+        <p>
+            Um gerador elétrico é capaz de <b>produzir corrente elétrica</b>, sendo caracterizado por sua tensão elétrica,
+            ou diferença de potencial elétrico (ddp), medida em V (volt) e representada pela letra \(UU\). Em uma
+            esquematização de um circuito elétrico, o gerador é simbolizado por duas <b>barras paralelas de tamanho
+            diferentes</b> (Sadiku, 2014), como a figura a seguir.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 4</strong>.</span> 
+            Representação de um gerador
+        </h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 30%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765802711/fig4_hte7hi.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem mostra o símbolo convencional utilizado em
+                circuitos elétricos para representar um gerador, como uma pilha ou bateria. O símbolo
+                é composto por duas linhas verticais paralelas de tamanhos diferentes: a linha maior
+                representa o pólo positivo (+) e a linha menor representa o pólo negativo (-).
+            </p>
+        </section>
+        <br>
+        <p>
+            A barra maior representa o polo positivo do gerador, enquanto que a barra menor representa o polo
+            negativo (Seixas, 2018). Desse modo, é importante conceituarmos que:
+        </p>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:justify;">
+                    A corrente elétrica parte do polo positivo e segue no sentido do polo negativo do gerador.
+                </p>    
+            </div>
+        </div>
+        <br>
+        <p>
+            O diferencial de potencial elétrico, ou tensão elétrica, é dado pela diferença de potencial no polo positivo
+            e no polo negativo, ou seja, quando ligamos um aparelho em uma tomada de 110 V, isso indica que a
+            diferença de potencial elétrico entre os polos positivos e negativos é igual a 110 V.
+        </p>
+    </section>
+    <section class="secao2" id="secao4">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                4. RESISTÊNCIA ELÉTRICA
+            </h1>
+        </div>
+
+        <p>
+            A resistência elétrica \((R)\) é capacidade física de um corpo a se opor à passagem da corrente elétrica
+            (fluxo de elétrons). A unidade de medida de uma resistência ou resistor elétrico é definida no sistema
+            internacional por ohm, sendo representado pela letra grega ômega \((\Omega)\) (Sadiku, 2014).
+        </p>
+
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                4.1 RESISTÊNCIA ELÉTRICA E A 1° LEI DE OHM
+            </h1>
+        </div>
+        <p>
+            A intensidade do fluxo das cargas depende da resistência oferecida pelo fio condutor e da tensão elétrica
+            imposta pelo gerador. No caso de um circuito elétrico, a corrente elétrica é inversamente proporcional à
+            resistência do condutor, ou seja, <b>quanto maior a resistência, menor é a corrente</b> (Markus, 2009).
+        </p>
+        <p>
+            Outra relação importante é:
+        </p>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:justify;">
+                    Quanto maior o diferencial de potencial elétrico, maior será a corrente elétrica que circulará
+                    pelo condutor, sendo assim, a corrente é diretamente proporcional à tensão elétrica.
+                </p>
+            </div>
+        </div>
+        <p>
+            Matematicamente, definimos que a relação entre tensão, corrente e resistência elétrica é dada pela
+            seguinte expressão:
+        </p>
+        <p>
+            $$ U = R \cdot i$$
+        </p>
+        <p>
+            Onde: \(U\) é a tensão elétrica ou ddp, em volts \((V)\), \(R\) é a resistência elétrica, em ohm \((\Omega)\), e \(i\) é a intensidade da corrente elétrica em ampere \((A)\).
+        </p>
+        <p>
+            Nesse sentido, rearranjando a expressão também podemos definir expressões que calculem o valor da
+            corrente e da resistência elétrica:
+        </p>
+        <p>
+            $$ R = \frac {U}{i} \qquad e \qquad i = \frac {U}{R} $$
+        </p>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                4.2 RESISTÊNCIA ELÉTRICA RELACIONADA ÀS CARACTERÍSTICAS DO CONDU
+                TOR (2ª LEI DE OHM)
+            </h1>
+        </div>
+        <p>
+            A resistência elétrica \((R)\) oferecida por um fio condutor à passagem 
+            de corrente elétrica é associada às seguintes características (clique nos botões para ler) 
+            (Sadiku, 2014):
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        COMPRIMENTO DO FIO CONDUTOR (L):
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Quanto maior a extensão do fio, maior é o caminho a ser percorrido pela corrente e,
+                        portanto, maior a resistência elétrica.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        ESPESSURA DO FIO CONDUTOR (S)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Representada pela seção transversal do fio. Assim, quanto mais grosso é o fio condutor,
+                        mais facilmente a corrente pode fluir pelo circuito, portanto, a resistência é menor.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        MATERIAL DO FIO CONDUTOR \((p)\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Cada tipo de material apresenta uma resistividade elétrica \(p\) (letra grega rô). Alguns
+                        materiais apresentam uma resistividade elétrica menor, facilitando a passagem da
+                        corrente, sendo chamados de bons condutores, como é o caso do ouro, da prata e do
+                        cobre. No entanto, há outros materiais que apresentam uma resistividade alta, dificultando
+                        a passagem da corrente elétrica, esses são chamados de isolantes elétricos, como é o
+                        caso da borracha e da madeira.
+                    </p>
+                </div>
+            </div>
+        
+        </div>
+        <br>
+
+        <p>
+            A <b>segunda lei de Ohm</b> expressa que (Markus, 2009):
+        </p>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:justify;">
+                A resistência \(R\) ao fluxo de cargas é diretamente proporcional ao comprimento \(L\), em
+                metros (m), do fio condutor e inversamente proporcional a sua espessura (área de seção
+                transversal) \(S\), em metros quadrados (m²).
+            </div>
+        </div>
+
+        <p>
+            Dessa forma, podemos obter a resistência elétrica de um condutor por meio da seguinte expressão:
+        </p>
+
+        <p>
+            $$ R = p \cdot \frac {L}{S} $$
+        </p>
+        <p>
+            Onde: \(R\) é resistência elétrica dada em ohm \((\Omega)\); \(p\) é a resistividade elétrica do material
+            do condutor, em ohm por metro \((\Omega \cdot m)\); \(L\) é o comprimento do fio condutor, em metros (m); e \(S\) 
+            é a área da seção transvresal, em metros quadrados \((m^2)\).
+        </p>
+        <p>
+            Quando um fio condutor apresenta resistência muito pequena, ou desprezível, esse condutor é ideal, pois
+            ele não oferecerá resistência à passagem da corrente elétrica.
+        </p>
+
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                4.3 ASSOCIAÇÃO DE RESISTORES EM SÉRIE
+            </h1>
+        </div>
+        <p>
+            Os resistores são dispositivos elétricos que, associados ao circuito, geram resistência à passagem da
+            corrente e dissipam energia do sistema. Por exemplo, temos as lâmpadas e aparelhos eletrônicos em
+            geral, em que todos eles geram resistência à passagem da corrente e dissipam energia do sistema elétrico
+            (Seixas, 2018).
+        </p>
+        <p>
+            Os resistores em um circuito elétrico podem ser associados <b>em série</b> ou <b>em paralelo</b>. Na <b>associação
+            em série</b> temos um único caminho para a passagem da corrente elétrica, por isso, todos os elementos
+            resistivos são percorridos pela mesma corrente (Seixas, 2018). Assim, quando qualquer um desses
+            resistores queimam ou deixam de funcionar, o fluxo de carga é interrompido (Figura 5).
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 5</strong>.</span>
+            Associação de resistores em série
+        </h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 70%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765804938/fig5_qypfxe.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem ilustra um circuito elétrico com quatro resistores \(({R_1},\; {R_2},\; {R_3}\; e \; {R_4})\) 
+                ligados em série,
+                ou seja, um após o outro no mesmo ramo do circuito. À esquerda, há um símbolo de gerador com o terminal positivo
+                indicado, e uma seta mostra o sentido da corrente elétrica (i), que percorre todos os resistores na mesma direção. No
+                final, após a \(R_4\), há o polo negativo do gerador.
+            </p>
+        </section>
+        <br>
+        <p>
+            Quando associamos resistores, como representado na Figura 5, podemos representar a resistência do
+            circuito por meio de uma resistência equivalente \(R_{eq}\). A resistência equivalente para uma associação em
+            série é dada pela soma de todos os resistores associados ao circuito.
+        </p>
+        <p>
+            $$ R_{eq} = R_1 + R_2 + R_3 + R_4 + \cdot \cdot \cdot + R_n$$
+        </p>
+        <p>
+            No caso da Figura 5, como temos 4 resistores associados, a resistência equivalente é dada por:
+        </p>
+        <p>
+            $$ R_{eq} = R_1 + R_2 + R_3 + R_4 $$
+        </p>
+        <p>
+            E pode ser representada por apenas um resistor, como a figura a seguir.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 6</strong>.</span>
+            Resistência equivalente
+        </h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 70%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765805293/fig6_zcfkuw.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem apresenta um circuito elétrico simplificado contendo apenas uma resistência
+                equivalente \((R_{eq})\) conectada entre os pólos positivo e negativo de um gerador. À esquerda, há a indicação do
+                terminal positivo do gerador e uma seta apontando para a direita, simbolizando o sentido da corrente elétrica (i).
+                Essa representação é usada para substituir uma associação de resistores em série ou paralelo por um único resistor
+                que exerce o mesmo efeito sobre a corrente elétrica.
+            </p>
+        </section>
+        <br>
+        <p>
+            Para ficar mais claro, assista a esse vídeo sobre como realizar uma associação em série!
+        </p>
+
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1V-JeU2m3W-GGBQESgNhMqxOEYC5YwNLg/preview"
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                4.4 ASSOCIAÇÃO DE RESISTORES EM PARALELO
+            </h1>
+        </div>
+        <p>
+            Ao analisar os circuitos com associação em série, provavelmente, você deve ter pensado por qual razão
+            quando uma lâmpada queima em sua casa, nada acontece com as outras. Ao contrário das associações
+            em série, os circuitos residenciais apresentam mais de um caminho para a corrente elétrica circular, esses
+            tipos de associações são as associações em paralelo (Markus, 2009). Veja a representação de um circuito
+            com associação em paralelo na Figura 7.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 7</strong>.</span>
+            Associação de resistores em paralelo
+        </h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 70%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765805293/fig6_zcfkuw.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem mostra um circuito elétrico no qual três resistores \((R_1,\; R_2\; e\; R_3)\) estão conectados
+                em paralelo entre dois pontos alimentados por um gerador. À esquerda da imagem, há uma seta indicando o sentido
+                da corrente elétrica total (i) que entra no ponto de divisão. Essa corrente se divide em três partes: \(i_1\), que 
+                passa por \(R_1\); \(i_2\), por \(R_2\); e \(i_3\), por \(R_3\).
+                Após atravessarem seus respectivos resistores, as correntes se reencontram, formando
+                novamente a corrente total.
+            </p>
+        </section>
+        <br>
+        <p>
+            Na associação em paralelo, a tensão fornecida aos elementos resistivos é a mesma, pois todos estão
+            conectados ao gerador de forma independente, dessa forma, a tensão em todos eles é sempre igual.
+        </p>
+        <p>
+            Nesse caso, a corrente elétrica é dividida entre os elementos do circuito. Perceba que, na Figura 7, há
+            três caminhos para o fluxo de cargas. Dessa forma, ao chegar ao ponto de conexão dos condutores, a
+            corrente total do sistema se divide em \(i_{1},\; i_{2}\; e\; i_{3}\).
+            No entanto, caso um dos caminhos seja interrompido, nada acontece à outra passagem.
+        </p>
+        <p>
+            Nos circuitos com associação em paralelo, podemos substituir o conjunto de resistores por um outro
+            equivalente. Porém, para calcularmos a resistência equivalente, utiliza-se uma expressão diferente da
+            associação em série (Seixas, 2018). As associações em paralelo são dadas pela seguinte expressão:
+        </p>
+
+        <p>
+            $$ \frac {1}{R_{eq}} = \frac {1}{R_1} + \frac {1}{R_2} + \frac {1}{R_3} + 
+                \cdot \cdot \cdot + \frac {1}{R_n}
+            $$
+        </p>
+        <p>
+            No caso apresentado na Figura 7, teríamos:
+        </p>
+        <p>
+            $$ \frac {1}{R_{eq}} = \frac {1}{R_1} + \frac {1}{R_2} + \frac {1}{R_3} $$
+        </p>
+        <p>
+            Assim, passamos a representar o circuito como mostra a Figura 8.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 8</strong>.</span>
+            Resistência equivalente
+        </h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 70%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765805293/fig6_zcfkuw.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem apresenta um circuito elétrico simplificado com uma única resistência equivalente (Rₑq)
+                conectada entre os polos de um gerador elétrico. À esquerda, o símbolo do gerador indica os polos positivo e negativo.
+                Uma seta aponta no sentido da corrente elétrica (i), que percorre o circuito passando diretamente por \(R_{eq}\). Esse tipo de
+                representação é usado para substituir uma associação de resistores por um único resistor que provoca o mesmo efeito
+                sobre a corrente total do circuito.
+            </p>
+        </section>
+        <br>
+        <p>
+            Vamos aplicar um cálculo sobre a associação em paralelo? Assista ao vídeo a seguir!
+        </p>
+
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1qKJB3oyxRfqSgNamhBvWQg2gSQ_nTmrw/preview" onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+    </section>
+    <section class="secao1" id="secao5">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                5. EXERCÍCIOS COMENTADOS
+            </h1>
+        </div>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>.
+                    Quando uma lâmpada é acesa, 400 trilhões de elétrons atravessam seu filamento em 20 microssegundos.
+                    Com base nessa informação, determine a intensidade da corrente elétrica que percorre esse filamento.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                </p>
+                <br>
+                <p>
+                    1. Entendendo o que foi dado:
+                </p>
+                <p class="paragrafo-seta">
+                    Quantidade de elétrons:
+                </p>
+                <div class="math-wrapper">
+                <p>
+                    $$ n = {400 \;trilhões\; de\; elétrons} = 400 \cdot 10^{12}\; elétrons $$
+                </p>
+                </div>
+                <p class="paragrafo-seta">
+                    Intervalo de tempo:
+                </p>
+                <div class="math-wrapper">
+                <p>
+                    $$ \Delta{t} = 20 {microssegundos} (\mu) = 20 \cdot 10^{-6} s$$
+                </p>
+                </div>
+                <br>
+                <p>
+                    2. Calculando a carga total que atravessa o filamento:
+                </p>
+                <p>
+                    A carga elétrica \(Q\) é o produto da quantidade de elétrons pelo valor da carga de cada um. Sabemos que
+                    a carga de um elétron é de \(1,6 \cdot 10^{-19}\; C\), assim:
+                </p>
+                <p>
+                    $$ Q = n \cdot e = 400 \cdot 10^{12} \cdot 1,6 \cdot 10^{-19}\; C $$
+                </p>
+                <p>
+                    $$ Q = 6,4 \cdot 10^{-5}\; C $$
+                </p>
+                <p>
+                    Isso representa a quantidade total de carga elétrica que passou pelo filamento durante o intervalo de tempo.
+                </p>
+                <br>
+                <p>
+                    3. Determinando a intensidade da corrente elétrica:
+                </p>
+                <p>
+                    Corrente elétrica é definida como a quantidade de carga que passa por um ponto do circuito em um
+                    determinado tempo, com a carga em Coulomb e o tempo em segundos:
+                </p>
+                <p>
+                    $$ i = \frac {Q}{\Delta{t}} = \frac {6,4 \cdot 10^{5}}{20 \cdot 10^{-6}} $$
+                </p>
+                <p>
+                    $$ i = 3,2\; A $$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A corrente elétrica que percorre o filamento da lâmpada, nesse caso, é de \(3,2\; A\).
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>2</strong>.
+                    Considerando que uma corrente elétrica de 21 mA passa por um condutor de resistência 100 \(\Omega\),
+                    qual é o valor da diferença de potencial (ddp) nos terminais desse condutor?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    1. Entendendo os dados fornecidos:
+                </p>
+                <p class="paragrafo-seta">
+                    Corrente elétrica:
+                </p>
+                <p>$$ i = 21\; mA = 21 \cdot 10^{-3}\; A$$</p>
+                <p class="paragrafo-seta">
+                    Resistência elétrica:
+                </p>
+                <p>$$ R = 100\; {\Omega} $$</p>
+                <p>
+                    Antes de usar qualquer fórmula, sempre converta a corrente de miliampère para ampère, pois o Sistema
+                    Internacional trabalha com unidade padrão \(A\).
+                </p>
+                <br>
+                <p>
+                    2. Aplicando a Lei de Ohm:
+                </p>
+                <p>
+                    Sabemos que a diferença de potencial (ou tensão) é calculada pela fórmula:
+                </p>
+                <p>
+                    $$ U = R \cdot i $$
+                </p>
+                <p>
+                    Substituindo os valores:
+                </p>
+                <p>
+                    $$ U = 21 \cdot 10^{-3} \cdot 100$$
+                </p>
+                <p>
+                    $$ U = 2,1\; V $$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A diferença de potencial (ddp) entre os terminais do condutor é igual a 2,1 volts.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>3</strong>.
+                    Em um circuito elétrico de tensão elétrica igual a 110 V está associada uma lâmpada de resistência
+                    igual a 220 \({\Omega}\). Qual o valor da corrente elétrica que percorre o circuito?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    1. Identificando os dados do problema:
+                </p>
+                <p class="paragrafo-seta">
+                    Tensão elétrica (ddp):
+                </p>
+                <p>
+                    $$ U = 110\; V $$
+                </p>
+                <p class="paragrafo-seta">
+                    Resistência do condutor:
+                </p>
+                <p>
+                    $$ R = 220\; \Omega $$
+                </p>
+                <p>
+                    Queremos descobrir a corrente elétrica que passa pelo circuito. Para isso, vamos usar a Lei de Ohm.
+                </p>
+                <br>
+                <p>
+                    2. Aplicando a fórmula da Lei de Ohm:
+                </p>
+                <p>
+                    $$ i = \frac{U}{R} $$
+                </p>
+                <p>
+                    Substituindo os valores fornecidos:
+                </p>
+                <p>
+                    $$ i = \frac {110}{220} $$
+                </p>
+                <p>
+                    i = 0,5\; A
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    Portanto, a corrente elétrica que passa no circuito é igual a 0,5 A.
+                </p>
+            </div>
+        </div>
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>4</strong>.
+                    Um fio condutor de latão, cuja resistividade vale \(8,0 \cdot 10^{-8}\; \Omega \cdot m\),
+                    tem área de seção transversal \(2,0\; mm^2\) e comprimento de 2,0 cm. Qual o valor da resistência desse fio condutor?
+                </p>
+                
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    1. Conversão de unidades:
+                </p>
+                <p>
+                    Antes de aplicar a fórmula da resistência, é necessário garantir que todas as unidades estejam no Sistema
+                    Internacional (SI):
+                </p>
+                <p class="paragrafo-seta">
+                    Área de seção:
+                </p>
+                <p>
+                    $$ S = 2,0\; mm^2 = 2,0 \cdot 10^{-6}\; m^2$$
+                </p>
+                <p class="paragrafo-seta">
+                    Comprimento:
+                </p>
+                <p>
+                    $$
+                        L = 2,0\; cm = 2,0 \cdot 10^{-2}\; m
+                    $$
+                </p>
+                <br>
+                <p>
+                    2. Aplicando a fórmula da resistência elétrica:
+                </p>
+                <p>
+                    A resistência \(R\) de um condutor é dada por:
+                </p>
+                <p>
+                    $$ R = p \cdot \frac{L}{S} $$
+                </p>
+                <p>
+                    Substituindo os valores:
+                </p>
+                <p>
+                    $$ 
+                        R = 8,0 \cdot 10^{-8} \cdot \frac {2,0 \cdot 10^{-2}}{2,0 \cdot 10^{-6}}
+                    $$
+                </p>
+                <p>
+                    $$ 
+                        R = 8,0 \cdot 10^{-4}\; \Omega
+                    $$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A resistência do fio condutor é \(8,0 \cdot 10^{-4}\; \Omega\).
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>5</strong>.
+                    A seguir, temos um circuito elétrico com fio condutor ideal (resistência nula) que apresenta uma associação
+                    em série de resistores:
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 60%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765808234/fig_sem_numero1_r77icl.png" alt="">
+                </div>
+                <p>
+                    Determine:
+                </p>
+                <p>
+                    a) A resistência equivalente do circuito.
+                </p>
+                <p>
+                    b) A intensidade da corrente que passa pelo circuito.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    a) a) Resistência equivalente (associação em série):
+                </p>
+                <p>
+                    Quando os resistores estão ligados em série, a resistência total do circuito é simplesmente a soma das
+                    resistências individuais:
+                </p>
+                <p>
+                    $$ R_{eq} = R_1 + R_2 + R_3 + R_4 $$
+                </p>
+                <p>
+                    Substituindo os valores fornecidos:
+                </p>
+                <p>
+                    $$ R_{eq} = 50 + 200 + 75 + 75 $$
+                </p>
+                <p>
+                    $$ R_{eq} = 400\; \Omega $$
+                </p>
+                <p>
+                    Em série, todos os resistores compartilham a mesma corrente. A tensão da fonte se distribui proporcionalmente
+                    entre eles e a resistência total é a soma direta.
+                </p>
+                <p>
+                    b) Cálculo da corrente elétrica com a Lei de Ohm:
+                </p>
+                <p>
+                    A primeira Lei de Ohm relaciona a tensão, corrente e resistência por meio da fórmula:
+                </p>
+                <p>
+                    $$ i = \frac{U}{R} $$
+                </p>
+                <p>
+                    Onde:
+                </p>
+                <p class="paragrafo-seta">
+                    \(U = 220\; V\)
+                </p>
+                <p class="paragrafo-seta">
+                    \(R_{eq} =400\; \Omega\)
+                </p>
+                <p>
+                    $$ 
+                        i = \frac {220}{400} = 0,55\; A
+                    $$
+                </p>
+                <p>
+                    A corrente elétrica no circuito é a mesma em todos os pontos, pois não há ramificações. A fonte de 220 V
+                    "empurra" os elétrons por toda essa resistência total, gerando essa intensidade de corrente.
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A resistência equivalente do circuito é igual a \(400\; \Omega\)
+                    e a intensidade da corrente é igual a \(0,55\; A\)
+                </p>
+            </div>
+        </div>
+
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>6</strong>.
+                    Em um circuito elétrico são associados três resistores em série, tal que \( R_1 = 500 \, \Omega, \, R_2 =
+                    200 \, \Omega \) e
+                    \( R_3 = 150 \, \Omega \). Sabendo que a intensidade da corrente que passa por esse circuito é de 20 mA,
+                    então,
+                    calcule:
+                </p>
+                <p>
+                    a) A resistência equivalente do circuito.
+                </p>
+                <p>
+                    b) A tensão elétrica entre os polos.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    a) Cálculo da resistência equivalente:
+                </p>
+                <p>
+                    Em uma associação em série, a resistência equivalente é obtida pela soma direta das resistências
+                    individuais:
+                </p>
+                <p>
+                    $$ R_{eq} = R_1 + R_2 + R_3 $$
+                </p>
+                <p>
+                    $$ R_{eq} = 500 + 200 + 150 = 850\; \Omega$$
+                </p>
+               
+                <p>
+                    Como os resistores estão ligados em série, a corrente passa por todos igualmente, mas a resistência se
+                    acumula. Portanto, somamos todos os valores diretamente.
+                </p>
+                <br>
+                <p>
+                    b) Cálculo da tensão (ddp) com a Lei de Ohm:
+                </p>
+                <p>
+                    Sabemos que a corrente elétrica é \(i = 20\; Ma = 20 \cdot 10^{-3}\; A\).
+                </p>
+                <p>
+                    Aplicamos a primeira Lei de Ohm:
+                </p>
+                <p>
+                    $$ U = R \cdot i $$
+                </p>
+                <p>
+                    $$ U = 850 \cdot 20 \cdot 10^{-3} = 17\; V $$
+                </p>
+                <p>
+                    A tensão total em um circuito em série é o resultado da resistência total vezes a corrente que o percorre.
+                    Como usamos as unidades no SI (\( \Omega \) e \( A \)), o resultado sai em volts (\( V \)).
+                </p>
+                
+               
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    O circuito apresenta tensão igual a \( 17\; V \) e resistência equivalente de \( 850\; \Omega \).
+                </p>
+            </div>
+        </div>
+
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>7</strong>.
+                    Dois resistores, um de resistência \(10\; \Omega\) e outro de \(30\; \Omega\), são associados
+                    em paralelo e ligados em uma fonte geradora de 120 V, como a figura a seguir.
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765812223/fig_sem_numero2_udwydw.png" alt="">
+                </div>
+                <p>
+                    Determine:
+                </p>
+                <p>
+                    a) A resistência equivalente da associação.
+                </p>
+                <p>
+                    b) A corrente elétrica total no circuito.
+                </p>
+                <p>
+                    c) A corrente elétrica que passa em cada resistor.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    Neste exercício, precisamos identificar uma associação em paralelo e aplicar corretamente as fórmulas de
+                    resistência equivalente e da Lei de Ohm. Em circuitos paralelos, todos os resistores estão ligados diretamente
+                    aos mesmos dois pontos, o que significa que a tensão em cada um deles é a mesma. Já a corrente elétrica se
+                    divide de acordo com a resistência de cada caminho: quanto menor a resistência, maior será a corrente.
+                </p>
+                <p>
+                    a) Resistência equivalente (associação em paralelo):
+                </p>
+                <p>
+                    A fórmula para associação em paralelo é:
+                </p>
+                <p>
+                    $$ \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} $$
+                </p>
+                <p>
+                    Substituindo os valores:
+                </p>
+                <p>
+                    $$ \frac{1}{R_{eq}} = \frac{1}{10} + \frac{1}{30} = \frac{3 + 1}{30} = \frac{4}{30} = \frac{2}{15} $$
+                </p>
+                <p>
+                    Multiplicando em cruz para encontrar \( R_{eq} \):
+                </p>
+                <div class="math-wrapper">
+                <p>
+                    $$ \frac{1}{R_{eq}} = \frac{2}{15} \implies 2 \cdot R_{eq} = 15 \implies R_{eq} = \frac{15}{2} = 7.5\; \Omega $$
+                </p>
+                </div>
+                <p>
+                    b) Corrente elétrica total no circuito:
+                </p>
+                <p>
+                    A corrente total é dada por:
+                </p>
+                <p>
+                    $$ i = \frac{U}{R_{eq}} $$
+                </p>
+                <p>
+                    $$ i = \frac{120}{7.5} = 16\; A $$
+                </p>
+                <p>
+                    c) Corrente elétrica em cada resistor:
+                </p>
+                <p>
+                    Como a tensão é a mesma para ambos os resistores (120 V), aplicamos a Lei de Ohm para cada um:
+                </p>
+                <p>
+                    No resistor de \( 10\; \Omega \):
+                </p>
+                <p>
+                    $$ i_1 = \frac{U}{R_1} = \frac{120}{10} = 12\; A $$
+                </p>
+                <p>
+                    No resistor de \( 30\; \Omega \):
+                </p>
+                <p>
+                    $$ i_2 = \frac{U}{R_2} = \frac{120}{30} = 4\; A $$
+                </p>
+                <p>
+                    Note que a corrente diminui conforme a resistência aumenta, e que a corrente total é igual a soma das correntes
+                    \( i_1 \) e \( i_2 \).
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A resistência equivalente é igual a \( 7.5\; \Omega \), a corrente total é \( 16\; A \), e as correntes nos
+                    resistores de \( 10\; \Omega \) e \( 30\; \Omega \) são respectivamente \( 12\; A \) e \( 4\; A \).
+                </p>
+            </div>
+        </div>
+
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>8</strong>.
+                    A seguir, temos um circuito elétrico com fio condutor ideal (resistência nula) que apresenta uma associação
+                    em série de resistores:
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 60%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765812346/fig_sem_numero3_ogor64.png" alt="">
+                </div>
+                
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                    Esse é um exemplo clássico de circuito misto, ou seja, parte dos resistores estão em paralelo e
+                    outros em série. Antes de somar tudo diretamente, é preciso observar quais resistores compartilham os mesmos
+                    pontos de conexão (associação em paralelo) e quais estão em sequência no mesmo ramo (associação em
+                    série). O erro mais comum é tentar somar todos os valores sem analisar a estrutura do circuito.
+                </p>
+                <br>
+                <p>
+                    Passo 1: Identificar a associação em paralelo
+                </p>
+                <p>
+                    Os resistores de \(20\; \Omega\), \(50\; \Omega\) e \(40\; \Omega\) estão em paralelo, ou seja, têm seus terminais conectados entre os
+                    mesmos dois pontos. Para calcular a resistência equivalente nesse trecho, usamos:
+                </p>
+                <p>
+                    $$ 
+                        \frac {1}{R_{eq}} = \frac {1}{20} + \frac {1}{50} + \frac {1}{40}
+                    $$
+                </p>
+                <p>
+                    Resolvendo:
+                </p>
+                <div class="math-wrapper">
+                <p>
+                    $$ 
+                        \frac {1}{R_{eq}} = 0,05 + 0,02 + 0,025 = 0,095 \rightarrow 0,095 = \frac {1}{0,095} =
+                        10,53\; \Omega
+                    $$
+                </p>
+                </div>
+                <br>
+                <p>
+                    Passo 2: Substituir essa parte por um único resistor equivalente
+                </p>
+                <p>
+                    Depois dessa etapa, o circuito pode ser representado como três resistores em série:
+                </p>
+                <p>
+                    Um de \(60\; \Omega\)
+                </p>
+                <p>
+                    Um equivalente de \(10,53\; \Omega\) (resultado da associação em paralelo)
+                </p>
+                <p>
+                    E outro de \(35\; \Omega\)
+                </p>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 50%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765812747/fig_sem_numero4_iklukl.png" alt="">
+                </div>
+                <br>
+                <p>
+                    Passo 3: Somar os resistores em série
+                </p>
+                <p>
+                    Em uma associação em série, basta somar os valores:
+                </p>
+                <p>
+                    $$ R_{eq} = 60 + 10,53 + 35 = 105,53\; \Omega $$
+                </p>
+                <br>
+                <p>
+                    <b>
+                        Resposta final:
+                    </b>
+                    A resistência equivalente total do circuito é \(105,53\; \Omega\).
+                </p>
+            </div>
+        </div>
+        <br>
+    </section>
+    <!-- Seção Conclusão -->
+    <section id="conclusao" class="conclusao">
+        <!-- Conteúdo -->
+        <div class="conteudo-conclusao">
+            <div class="caixa-texto">
+                <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                <p>
+                    Agora que passamos pelos principais pontos sobre circuitos elétricos, fica mais fácil identificar como
+                    os conceitos se aplicam no cotidiano. Desde a associação de resistores até o papel dos geradores,
+                    cada elemento tem sua função específica, e o entendimento dessas relações permite uma análise mais
+                    consciente e segura do uso da eletricidade.
+                </p>
+                <p>
+                    Esperamos que, com esse estudo, você se sinta mais confiante para interpretar esquemas elétricos e
+                    compreender como as variáveis se combinam para formar sistemas funcionais. Essa base teórica abre
+                    espaço para aplicações práticas, resolução de problemas e, claro, para uma maior autonomia na leitura
+                    e construção de circuitos.
+                </p>
+            </div>
+        </div>
+        <div id="download" class="download-section">
+            <a href="https://drive.google.com/uc?export=download&id=14NNDgZZBaQK81ibyaqwUiKjcVzqc_21h" class="download-btn">
+                Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+            </a>
+        </div>
+    </section>
+    <!-- Seção Referências -->
+    <section id="referencias" class="referencias">
+        <!-- Conteúdo -->
+        <div class="conteudo-referencias">
+            <div class="caixa-texto">
+                <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+    
+                <p>SEIXAS, Jordana L.; PINTO, Alfred G. M.; MATSUBARA, Lilian P.; et al.
+                    <strong>Circuitos elétricos.</strong> Porto Alegre: SAGAH, 2018.
+                    E-book. p.27. ISBN 9788595025820. Disponível na Minha Biblioteca.
+                    Acesso em: 08 set. 2025.
+                </p>
+    
+                <p>SADIKU, Matthew; ALEXANDER, Charles; MUSA, Sarhan.
+                    <strong>Análise de circuitos elétricos com aplicações.</strong>
+                    Porto Alegre: AMGH, 2014. E-book. p.15. ISBN 9788580553031.
+                    Disponível na Minha Biblioteca. Acesso em: 08 set. 2025.
+                </p>
+    
+                <p>MARKUS, Otávio.
+                    <strong>Circuitos Elétricos – Corrente Contínua e Corrente Alternada.</strong>
+                    9. ed. Rio de Janeiro: Érica, 2009. E-book. p.36.
+                    ISBN 9788536518237. Disponível na Minha Biblioteca.
+                    Acesso em: 08 set. 2025.
+                </p>
+    
+            </div>
+        </div>
+    </section>
+    <!-- Seção com os créditos e ficha técnica -->
+    <section class="ficha-tecnica">
+        <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+            IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+        <br>
+        <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+            Franklin Portela Correia</p>
+    
+        <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+            Flávia Cristina Franco de Lima Rosa</p>
+    
+        <p><strong>SUPERVISORA EDUCACIONAL</strong>
+            Juliane Cristine Batista</p>
+    
+        <p><strong>DESIGNER INSTRUCIONAL</strong>
+            Ana Angelica Miranda Ramos</p>
+    
+        <p><strong>PROJETO GRÁFICO</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DIAGRAMADORES</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DESENVOLVEDOR</strong>
+            Pedro Vinicius Pires de Oliveira Dias</p>
+    
+        <p><strong>PRODUTOR AUDIOVISUAL</strong>
+            Cassio Martins de Carvalho</p>
+    
+        <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Diogo Lefort Silva<br>
+            Rafael da Silva Oliveira<br>
+            Hugo Henrique Ferreira da Silva</p>
+    
+        <br><br>
+        <p><span class="paragraforeduzido">
+                © 2026 Universidade São Francisco<br>
+                Avenida São Francisco de Assis, 218<br>
+                CEP 12916-900 – Bragança Paulista/SP
+        </p></span>
+    </section>
+    <footer class="footer">
+        <p>Copyright © de Universidade São Francisco</p>
+        <hr class="footer-divider">
+        <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+            qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+            gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+            expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+    </footer>
+
+    <script>
+
+        // Navbar
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                const menu = document.querySelector('.navbar ul');
+                const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+            });
+            // Fechar o menu ao clicar em um link
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i');
+
+                    // Fecha o menu ao clicar no link
+                    menu.classList.remove('show');
+                    icons[0].style.display = 'block'; // Exibe o ícone de menu
+                    icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                });
+            });
+            // Captura o elemento navbar
+            const navbar = document.querySelector('.navbar');
+
+            // Função que altera a opacidade da navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                    navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                } else {
+                    navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                }
+            });
+
+        document.querySelectorAll('.slider-texto-container').forEach(initSliderTexto);
+
+            function initSliderTexto(container) {
+                const slides = container.querySelectorAll('.slide-texto');
+                const indicatorsContainer = container.querySelector('.slider-texto-indicadores');
+
+                indicatorsContainer.innerHTML = ''; // Limpa indicadores anteriores
+
+                // Cria os dots dinamicamente
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot-texto');
+                    dot.onclick = () => mostrarSlide(index);
+                    indicatorsContainer.appendChild(dot);
+                });
+
+                const dots = container.querySelectorAll('.dot-texto');
+                let currentIndex = 0;
+
+                function mostrarSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('ativo'));
+                    dots.forEach(dot => dot.classList.remove('ativo'));
+
+                    currentIndex = (index + slides.length) % slides.length;
+
+                    slides[currentIndex].classList.add('ativo');
+                    dots[currentIndex].classList.add('ativo');
+                }
+
+                // Armazena a função no container para chamadas externas
+                container.mostrarSlideTexto = mostrarSlide;
+                container.getCurrentIndex = () => currentIndex;
+                mostrarSlide(0);
+            }
+
+            // Chamado pelos botões de seta
+            function mudarSlideTexto(button, direcao) {
+                const container = button.closest('.slider-texto-container');
+                const currentIndex = container.getCurrentIndex();
+                container.mostrarSlideTexto(currentIndex + direcao);
+            }
+
+            // Chamado pelos dots (não necessário, mas deixado por compatibilidade)
+            function irParaSlideTexto(dot, index) {
+                const container = dot.closest('.slider-texto-container');
+                container.mostrarSlideTexto(index);
+            }
+
+        document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                    const icon = header.querySelector('.acordeon-icon');
+                    if (icon) {
+                        icon.classList.toggle('bx-chevron-up', !isVisible);
+                        icon.classList.toggle('bx-chevron-down', isVisible);
+                    }
+                });
+            });
+
+            // Função para abrir o modal com o vídeo
+                function openVideoModal(element) {
+                    var videoModal = document.getElementById('videoModal');
+                    var iframe = document.getElementById('videoIframe');
+
+                    // Obtém o link do vídeo do atributo 'data-video' do ícone de play clicado
+                    var videoLink = element.getAttribute("data-video");
+
+                    // Define o src do iframe com o link do vídeo
+                    iframe.src = videoLink;
+
+                    // Exibe o modal
+                    videoModal.style.display = "flex";
+                }
+
+                // Função para fechar o modal
+                function closeVideoModal() {
+                    var videoModal = document.getElementById('videoModal');
+                    var iframe = document.getElementById('videoIframe');
+
+                    // Limpa o vídeo (remove a URL para evitar que o vídeo continue tocando)
+                    iframe.src = "";
+                    videoModal.style.display = "none";  // Fecha o modal
+                }
+
+                // Impede o fechamento do modal quando o clique for dentro do modal de vídeo
+                document.getElementById('videoModal').addEventListener('click', function (event) {
+                    // Apenas fecha o modal se o clique for fora da área de conteúdo (ou seja, na área preta)
+                    if (event.target === this) {
+                        closeVideoModal();
+                    }
+                });
+
+                // Cria o container lightbox
+                const lightbox = document.createElement("div");
+                lightbox.classList.add("lightbox");
+                document.body.appendChild(lightbox);
+
+                let scale = 1; // nível de zoom
+                let isDragging = false;
+                let startX, startY, translateX = 0, translateY = 0;
+
+                document.querySelectorAll(".zoomable").forEach(img => {
+                    img.addEventListener("click", () => {
+                        const imgClone = document.createElement("img");
+                        imgClone.src = img.src;
+                        imgClone.alt = img.alt;
+                        imgClone.style.objectFit = "contain"; // garante que abre ajustada
+                        imgClone.style.maxWidth = "100%";
+                        imgClone.style.maxHeight = "100%";
+
+                        lightbox.innerHTML = "";
+                        lightbox.appendChild(imgClone);
+                        lightbox.style.display = "flex";
+                        scale = 1;
+                        translateX = translateY = 0;
+                        updateTransform(imgClone);
+
+                        // Mensagem de dica
+                        const hint = document.createElement("div");
+                        hint.classList.add("lightbox-hint");
+                        hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                        lightbox.appendChild(hint);
+
+                        // Remove a dica após 4s
+                        setTimeout(() => {
+                            if (hint && hint.parentNode) {
+                                hint.remove();
+                            }
+                        }, 4000);
+
+                        // Zoom com scroll
+                        imgClone.addEventListener("wheel", e => {
+                            e.preventDefault();
+                            scale += e.deltaY * -0.001;
+                            scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                            updateTransform(imgClone);
+                        });
+
+                        // Arrastar imagem
+                        imgClone.addEventListener("mousedown", e => {
+                            isDragging = true;
+                            startX = e.clientX - translateX;
+                            startY = e.clientY - translateY;
+                            lightbox.style.cursor = "grabbing";
+                        });
+
+                        window.addEventListener("mousemove", e => {
+                            if (!isDragging) return;
+                            translateX = e.clientX - startX;
+                            translateY = e.clientY - startY;
+                            updateTransform(imgClone);
+                        });
+
+                        window.addEventListener("mouseup", () => {
+                            isDragging = false;
+                            lightbox.style.cursor = "grab";
+                        });
+                    });
+                });
+
+                // Fecha clicando fora da imagem
+                lightbox.addEventListener("click", e => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = "none";
+                    }
+                });
+
+                // Função para aplicar zoom + movimento
+                function updateTransform(img) {
+                    img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                }
+    </script>
+</body>
+</html>
