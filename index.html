@@ -1391,38 +1391,50 @@
         .lightbox {
             display: none;
             position: fixed;
+            inset: 0;
             z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
             background-color: rgba(0,0,0,0.9);
             justify-content: center;
             align-items: center;
-            cursor: grab;
             overflow: hidden;
         }
 
+        /* Tamanho PADRÃO e controlado da imagem */
         .lightbox img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
             transition: transform 0.2s ease;
-            transform-origin: center center;
+            transform-origin: center;
+            cursor: grab;
         }
+
+        /* Botão fechar */
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 32px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10000;
+            opacity: 0.8;
+        }
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+
         .lightbox-hint {
             position: absolute;
             bottom: 20px;
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
-            font-family: sans-serif;
-            text-align: center;
-            animation: fadeOut 4s forwards; /* some sozinho */
+            animation: fadeOut 4s forwards;
         }
+
         .zoomable {
-            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
-            transition: transform 0.2s ease;
+            cursor: zoom-in;
         }
 
         .zoomable:hover {
@@ -1960,7 +1972,7 @@
         
             <!-- Descrição com largura maior -->
             <p class="descricao-figura-larga">
-                <strong>Descrição da tabela:</strong>
+                <strong>Descrição da figura:</strong>
                 A imagem apresenta um esquema de circuito elétrico simples em série. Ele
                 é composto por um gerador, duas resistências conectadas em série, uma chave (ou interruptor) está
                 posicionada ao lado direito, permitindo abrir ou fechar o circuito conforme sua posição. A indicação da
@@ -2092,7 +2104,7 @@
                     
                         <!-- Descrição com largura maior -->
                         <p class="descricao-figura-larga">
-                            <strong>Descrição da tabela:</strong>
+                            <strong>Descrição da figura:</strong>
                             A imagem mostra um gráfico de corrente elétrica em função do tempo, re
                             presentando uma corrente <b>contínua (CC)</b>. O eixo vertical indica a intensidade da corrente elétrica
                             <b>(corrente)</b>, e o eixo horizontal representa o tempo <b>(tempo)</b>. A linha vermelha horizontal, identificada
@@ -2135,7 +2147,7 @@
                 
                         <!-- Descrição com largura maior -->
                         <p class="descricao-figura-larga">
-                            <strong>Descrição da tabela:</strong>
+                            <strong>Descrição da figura:</strong>
                             A imagem apresenta um gráfico de corrente elétrica em função do tempo,
                             representando uma <b>corrente alternada (CA)</b>. No eixo vertical está a intensidade da corrente <b>(corrente)</b> 
                             e no eixo horizontal o tempo <b>(tempo)</b>. A curva senoidal verde mostra que a corrente alterna
@@ -2164,7 +2176,7 @@
         </div>
         <p>
             Um gerador elétrico é capaz de <b>produzir corrente elétrica</b>, sendo caracterizado por sua tensão elétrica,
-            ou diferença de potencial elétrico (ddp), medida em V (volt) e representada pela letra \(UU\). Em uma
+            ou diferença de potencial elétrico (ddp), medida em V (volt) e representada pela letra \(U\). Em uma
             esquematização de um circuito elétrico, o gerador é simbolizado por duas <b>barras paralelas de tamanho
             diferentes</b> (Sadiku, 2014), como a figura a seguir.
         </p>
@@ -2189,7 +2201,7 @@
         
             <!-- Descrição com largura maior -->
             <p class="descricao-figura-larga">
-                <strong>Descrição da tabela:</strong>
+                <strong>Descrição da figura:</strong>
                 A imagem mostra o símbolo convencional utilizado em
                 circuitos elétricos para representar um gerador, como uma pilha ou bateria. O símbolo
                 é composto por duas linhas verticais paralelas de tamanhos diferentes: a linha maior
@@ -2319,13 +2331,13 @@
             <div class="acordeon">
                 <div class="acordeon-headerc">
                     <span class="titulo-header">
-                        MATERIAL DO FIO CONDUTOR \((p)\)
+                        MATERIAL DO FIO CONDUTOR \((\rho)\)
                     </span>
                     <i class="bx bx-chevron-down acordeon-icon"></i>
                 </div>
                 <div class="acordeon-contentc">
                     <p style="text-align: justify;">
-                        Cada tipo de material apresenta uma resistividade elétrica \(p\) (letra grega rô). Alguns
+                        Cada tipo de material apresenta uma resistividade elétrica \(\rho\) (letra grega rô). Alguns
                         materiais apresentam uma resistividade elétrica menor, facilitando a passagem da
                         corrente, sendo chamados de bons condutores, como é o caso do ouro, da prata e do
                         cobre. No entanto, há outros materiais que apresentam uma resistividade alta, dificultando
@@ -2356,10 +2368,10 @@
         </p>
 
         <p>
-            $$ R = p \cdot \frac {L}{S} $$
+            $$ R = \rho \cdot \frac {L}{S} $$
         </p>
         <p>
-            Onde: \(R\) é resistência elétrica dada em ohm \((\Omega)\); \(p\) é a resistividade elétrica do material
+            Onde: \(R\) é resistência elétrica dada em ohm \((\Omega)\); \(\rho\) é a resistividade elétrica do material
             do condutor, em ohm por metro \((\Omega \cdot m)\); \(L\) é o comprimento do fio condutor, em metros (m); e \(S\) 
             é a área da seção transvresal, em metros quadrados \((m^2)\).
         </p>
@@ -2407,7 +2419,7 @@
         
             <!-- Descrição com largura maior -->
             <p class="descricao-figura-larga">
-                <strong>Descrição da tabela:</strong>
+                <strong>Descrição da figura:</strong>
                 A imagem ilustra um circuito elétrico com quatro resistores \(({R_1},\; {R_2},\; {R_3}\; e \; {R_4})\) 
                 ligados em série,
                 ou seja, um após o outro no mesmo ramo do circuito. À esquerda, há um símbolo de gerador com o terminal positivo
@@ -2455,7 +2467,7 @@
         
             <!-- Descrição com largura maior -->
             <p class="descricao-figura-larga">
-                <strong>Descrição da tabela:</strong>
+                <strong>Descrição da figura:</strong>
                 A imagem apresenta um circuito elétrico simplificado contendo apenas uma resistência
                 equivalente \((R_{eq})\) conectada entre os pólos positivo e negativo de um gerador. À esquerda, há a indicação do
                 terminal positivo do gerador e uma seta apontando para a direita, simbolizando o sentido da corrente elétrica (i).
@@ -2513,7 +2525,7 @@
             <!-- Imagem -->
             <div class="figura-container">
                 <img class="zoomable" style="max-width: 80%; width: 70%;"
-                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765805293/fig6_zcfkuw.png" alt="">
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765894640/fig7_xjtdib.png" alt="">
             </div>
             <br>
             <!-- Fonte abaixo da imagem -->
@@ -2523,7 +2535,7 @@
         
             <!-- Descrição com largura maior -->
             <p class="descricao-figura-larga">
-                <strong>Descrição da tabela:</strong>
+                <strong>Descrição da figura:</strong>
                 A imagem mostra um circuito elétrico no qual três resistores \((R_1,\; R_2\; e\; R_3)\) estão conectados
                 em paralelo entre dois pontos alimentados por um gerador. À esquerda da imagem, há uma seta indicando o sentido
                 da corrente elétrica total (i) que entra no ponto de divisão. Essa corrente se divide em três partes: \(i_1\), que 
@@ -2584,7 +2596,7 @@
         
             <!-- Descrição com largura maior -->
             <p class="descricao-figura-larga">
-                <strong>Descrição da tabela:</strong>
+                <strong>Descrição da figura:</strong>
                 A imagem apresenta um circuito elétrico simplificado com uma única resistência equivalente (Rₑq)
                 conectada entre os polos de um gerador elétrico. À esquerda, o símbolo do gerador indica os polos positivo e negativo.
                 Uma seta aponta no sentido da corrente elétrica (i), que percorre o circuito passando diretamente por \(R_{eq}\). Esse tipo de
@@ -2793,7 +2805,7 @@
                     $$ i = \frac {110}{220} $$
                 </p>
                 <p>
-                    i = 0,5\; A
+                    $$i = 0,5\; A$$
                 </p>
                 <br>
                 <p>
@@ -2844,7 +2856,7 @@
                     A resistência \(R\) de um condutor é dada por:
                 </p>
                 <p>
-                    $$ R = p \cdot \frac{L}{S} $$
+                    $$ R = \rho \cdot \frac{L}{S} $$
                 </p>
                 <p>
                     Substituindo os valores:
@@ -2997,7 +3009,7 @@
                     b) Cálculo da tensão (ddp) com a Lei de Ohm:
                 </p>
                 <p>
-                    Sabemos que a corrente elétrica é \(i = 20\; Ma = 20 \cdot 10^{-3}\; A\).
+                    Sabemos que a corrente elétrica é \(i = 20\; mA = 20 \cdot 10^{-3}\; A\).
                 </p>
                 <p>
                     Aplicamos a primeira Lei de Ohm:
@@ -3078,7 +3090,7 @@
                 </p>
                 <div class="math-wrapper">
                 <p>
-                    $$ \frac{1}{R_{eq}} = \frac{2}{15} \implies 2 \cdot R_{eq} = 15 \implies R_{eq} = \frac{15}{2} = 7.5\; \Omega $$
+                    $$ \frac{1}{R_{eq}} = \frac{2}{15} \implies 2 \cdot R_{eq} = 15 \implies R_{eq} = \frac{15}{2} = 7,5\; \Omega $$
                 </p>
                 </div>
                 <p>
@@ -3091,7 +3103,7 @@
                     $$ i = \frac{U}{R_{eq}} $$
                 </p>
                 <p>
-                    $$ i = \frac{120}{7.5} = 16\; A $$
+                    $$ i = \frac{120}{7,5} = 16\; A $$
                 </p>
                 <p>
                     c) Corrente elétrica em cada resistor:
@@ -3118,7 +3130,7 @@
                 <br>
                 <p>
                     <b>Resposta:</b>
-                    A resistência equivalente é igual a \( 7.5\; \Omega \), a corrente total é \( 16\; A \), e as correntes nos
+                    A resistência equivalente é igual a \( 7,5\; \Omega \), a corrente total é \( 16\; A \), e as correntes nos
                     resistores de \( 10\; \Omega \) e \( 30\; \Omega \) são respectivamente \( 12\; A \) e \( 4\; A \).
                 </p>
             </div>
@@ -3452,58 +3464,59 @@
                     }
                 });
 
-                // Cria o container lightbox
-                const lightbox = document.createElement("div");
-                lightbox.classList.add("lightbox");
-                document.body.appendChild(lightbox);
+                const INITIAL_SCALE = 0.85; // ajuste fino aqui (0.75 a 0.9 funciona bem)
+                    const lightbox = document.createElement("div");
+                    lightbox.className = "lightbox";
+                    document.body.appendChild(lightbox);
 
-                let scale = 1; // nível de zoom
-                let isDragging = false;
-                let startX, startY, translateX = 0, translateY = 0;
+                    let scale = 1;
+                    let isDragging = false;
+                    let startX, startY, translateX = 0, translateY = 0;
+                    let scrollPosition = 0;
 
-                document.querySelectorAll(".zoomable").forEach(img => {
-                    img.addEventListener("click", () => {
+                    function openLightbox(img) {
+                        scrollPosition = window.scrollY;
+                        document.body.style.position = "fixed";
+                        document.body.style.top = `-${scrollPosition}px`;
+                        document.body.style.width = "100%";
+
+                        lightbox.innerHTML = "";
+
                         const imgClone = document.createElement("img");
                         imgClone.src = img.src;
                         imgClone.alt = img.alt;
-                        imgClone.style.objectFit = "contain"; // garante que abre ajustada
-                        imgClone.style.maxWidth = "100%";
-                        imgClone.style.maxHeight = "100%";
 
-                        lightbox.innerHTML = "";
-                        lightbox.appendChild(imgClone);
+                        const closeBtn = document.createElement("div");
+                        closeBtn.className = "lightbox-close";
+                        closeBtn.innerHTML = "&times;";
+
+                        const hint = document.createElement("div");
+                        hint.className = "lightbox-hint";
+                        hint.innerText = "Use o scroll para zoom • Arraste para mover • ESC para fechar";
+
+                        lightbox.append(imgClone, closeBtn, hint);
                         lightbox.style.display = "flex";
-                        scale = 1;
+
+                        scale = INITIAL_SCALE;
                         translateX = translateY = 0;
                         updateTransform(imgClone);
 
-                        // Mensagem de dica
-                        const hint = document.createElement("div");
-                        hint.classList.add("lightbox-hint");
-                        hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
-                        lightbox.appendChild(hint);
+                        setTimeout(() => hint.remove(), 4000);
 
-                        // Remove a dica após 4s
-                        setTimeout(() => {
-                            if (hint && hint.parentNode) {
-                                hint.remove();
-                            }
-                        }, 4000);
+                        closeBtn.onclick = closeLightbox;
 
-                        // Zoom com scroll
                         imgClone.addEventListener("wheel", e => {
                             e.preventDefault();
                             scale += e.deltaY * -0.001;
-                            scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                            scale = Math.min(Math.max(0.8, scale), 4);
                             updateTransform(imgClone);
                         });
 
-                        // Arrastar imagem
                         imgClone.addEventListener("mousedown", e => {
                             isDragging = true;
                             startX = e.clientX - translateX;
                             startY = e.clientY - translateY;
-                            lightbox.style.cursor = "grabbing";
+                            imgClone.style.cursor = "grabbing";
                         });
 
                         window.addEventListener("mousemove", e => {
@@ -3515,22 +3528,32 @@
 
                         window.addEventListener("mouseup", () => {
                             isDragging = false;
-                            lightbox.style.cursor = "grab";
+                            imgClone.style.cursor = "grab";
                         });
-                    });
-                });
-
-                // Fecha clicando fora da imagem
-                lightbox.addEventListener("click", e => {
-                    if (e.target === lightbox) {
-                        lightbox.style.display = "none";
                     }
-                });
 
-                // Função para aplicar zoom + movimento
-                function updateTransform(img) {
-                    img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-                }
+                    function closeLightbox() {
+                        lightbox.style.display = "none";
+                        document.body.style.position = "";
+                        document.body.style.top = "";
+                        window.scrollTo(0, scrollPosition);
+                    }
+
+                    document.querySelectorAll(".zoomable").forEach(img => {
+                        img.addEventListener("click", () => openLightbox(img));
+                    });
+
+                    lightbox.addEventListener("click", e => {
+                        if (e.target === lightbox) closeLightbox();
+                    });
+
+                    document.addEventListener("keydown", e => {
+                        if (e.key === "Escape") closeLightbox();
+                    });
+
+                    function updateTransform(img) {
+                        img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                    }
     </script>
 </body>
 </html>
